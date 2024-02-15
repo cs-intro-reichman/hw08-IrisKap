@@ -154,11 +154,13 @@ class PlayList {
     public void remove(String title) {
         int i = indexOf(title);
         remove(i);
+        size--;
     }
 
     /** Removes the first track from this list. If the list is empty, does nothing. */
     public void removeFirst() {
         remove(0);
+        size--;
     }
     
     /** Adds all the tracks in the other list to the end of this list. 
@@ -171,6 +173,7 @@ class PlayList {
             {
                 this.add(other.getTrack(i));
             }
+            size+= other.size;
         }
     }
 
