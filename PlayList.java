@@ -116,6 +116,7 @@ class PlayList {
         if(size -1 < i)
         {
             tracks[size] = track;
+            size++;
             return true;
         }
 
