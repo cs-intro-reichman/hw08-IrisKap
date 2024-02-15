@@ -211,27 +211,22 @@ class PlayList {
      *  rather than returning a new, sorted playlist, the method sorts
      *  the list on which it was called (this list). */
     public void sortedInPlace() {
-       Track temp;
-       int minIndex;
-       int minIndexCheck;
-       int minDuration;
-       int minDurationCheck;
-        for(int i=1; i<size-1; i++)
-        {
-            minIndex =i;
-            minDuration = tracks[i].getDuration();
-            minIndexCheck = minIndex(i+1);
-            minDurationCheck = tracks[minIndexCheck].getDuration();
-            if(minDurationCheck < minDuration)
-            {
-                minIndex = minIndexCheck;
-            }
-            
-            temp = tracks[i];
-            tracks[i] = tracks[minIndex];
-            tracks[minIndex] = temp;
 
+        for(int i=0; i< size -1; i++)
+        {
+            int min=i;
+            for(int j = i+1 ; j< size; j++)
+            {
+                if(tracks[j].getDuration()< tracks[min].getDuration())
+                {
+                    min =j;
+                }
+            }
+            Track temp = tracks[i];
+            tracks[i]= tracks[min];
+            tracks[min] = temp;
         }
+        
         
     }
 }
